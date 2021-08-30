@@ -35,50 +35,56 @@
         let num,letra
 
         do{
-            num=parseInt(prompt('Informe um número entre 0 e 9'))
+            num=Number(prompt('Informe um número entre 0 e 9'))
         }while(isNaN(num)||num>9)
 
-        if(isNaN(num)||num>9)
-        alert('ERRO! O valor informado não é valido!')
-
-        else{
 
         switch(num){
-            case '0':
+            case 0:
             letra='A'
              break
-             case'1':
+             case 1:
              letra='B'
              break
-             case'2':
+             case 2:
              letra='C'
              break
-             case'3':
+             case 3:
              letra='D'
              break
-             case'4':
+             case 4:
              letra='E'
              break
-             case'5':
+             case 5:
              letra='F'
              break
-             case'6':
+             case 6:
              letra='G'
              break
-             case'7':
+             case 7:
              letra='H'
              break
-             case'8':
+             case 8:
              letra='I'
              break
-             case'9':
+             case 9:
              letra='J'
              break
              
             
              default:
+                
                  alert('O número informado não é válido!')
 
                      }
-             }
+             if(num!==undefined){
              document.write(`A letra correspondente ao número ${num} é ${letra}`)
+             }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
