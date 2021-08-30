@@ -35,8 +35,8 @@
         let num,letra
 
         do{
-            num=Number(prompt('Informe um número entre 0 e 9'))
-        }while(isNaN(num)||num>9)
+            num=parseInt(prompt('Informe um número entre 0 e 9'))
+        }while(isNaN(num)||num>9||num<0)
 
 
         switch(num){
