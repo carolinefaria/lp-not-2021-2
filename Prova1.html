@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 1</title>
+    <script>
+        //Declaração de variáveis
+        let dia,mes,ano,resto,escola
+        do{
+           dia= parseInt(prompt('Insira o dia do seu nascimento:'))
+        }while (isNaN(dia) || dia < 1 || dia > 31) //Validação de entrada do dia
+
+        do{
+           mes= parseInt(prompt('Agora informe o número do mês de seu nascimento:'))
+        }while(isNaN(mes) || mes < 1 || mes > 12) //Validação de entrada do mês
+
+        do{
+           ano= parseInt(prompt('Informe o ano de seu nascimento contendo quatro dígitos:'))
+        }while(isNaN(ano) || ano < 1921 || ano > 2021) //Validação de entrada do ano
+
+    function defEscola(dia,mes,ano){
+    let resultado = ano + mes
+    resultado *= dia
+    resto= resultado % 4
+
+    switch(resto){
+        case 0: 
+        escola= 'Casa Gado Demais'
+        break
+
+        case 1:
+            escola = 'Casa Galo de Rinha'
+            break
+
+        case 2:
+            escola = 'Casa Lacraste'
+            break
+
+        case 3:
+            escola = 'Casa Smilinguido'
+            break
+
+            default:
+            alert('Os valores informados não são válidos')
+    }
+    return escola
+}
+    if(resto!==undefined){
+    document.write(`${defEscola(dia,mes,ano)} <br>`)
+    }
+
+
+
+
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>
