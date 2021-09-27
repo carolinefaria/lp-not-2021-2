@@ -21,8 +21,8 @@
         }while(isNaN(ano) || ano < 1921 || ano > 2021) //Validação de entrada do ano
 
     function defEscola(dia,mes,ano){
-    let resultado = ano + mes
-    resultado *= dia
+    let resultado = (ano + mes) * dia
+    
     resto= resultado % 4
 
     switch(resto){
