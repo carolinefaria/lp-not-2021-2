@@ -9,54 +9,201 @@
 </head>
 <body>
     <h1>Document Object Model (DOM)</h1>
-    <!-- 
+
+    <ol>
+        <li>São Paulo</li>
+        <li>Minas Gerais</li>
+        <li>Rio de Janeiro</li>
+        <li>Espírito Santo</li>
+    <!--
         O id é um atributo que identifica unicamente um elemento
-        dentro da página. Portanto,dois elementos não podem ter 
+        dentro da página. Portanto, dois elementos não podem ter
         o mesmo id.
         O id pode ser adicionado a qualquer elemento.
     -->
-    <ol id='estados'>
-        <li id='sp'>São Paulo</li>
-        <li id='mg'>Minas Gerais</li>
-        <li id = 'rj'>Rio de Janeiro</li>
-        <li id ='es'>Espírito Santo</li>
-
+    <ol id="estados">
+        <li id="sp">São Paulo</li>
+        <li id="mg">Minas Gerais</li>
+        <li id="rj">Rio de Janeiro</li>
+        <li id="es">Espírito Santo</li>
     </ol>
 
     <script>
-        /* Manipulação do DOM */
+<h1>Document Object Model (DOM)</h1>
 
-        // 1) Capturar o elemento HTML e colocá-lo dentro de uma
-        //variável JavaScript
-
-        let titulo1 = document.querySelector('h1')
-
-        // 2) Alterar conteúdo textual do elemento
-        titulo1.textContent= 'Estados da Região Sudeste'
-
-        //Capturar mais um elemento
-        let item = document.querySelector('li')
-        item.style.color= 'red'
-
-        //Captura TODOS os elementos <li> dentro de um vetor
-            let itens=document.querySelectorAll('li')
-        
         // Troca a cor do TERCEIRO item
-        itens[2].style.color='blue'
+        itens[2].style.color = 'blue'
 
-        //Capturando um elemento pelo seu id - existem duas formas
-        let itemMg= document.getElementById('mg') //Forma clássica
-        itemMg.style.backgroundColor = 'yellow'
+        // Capturando um elemento pelo seu id - existem duas formas
+
+        let itemMg = document.getElementById('mg') // Forma clássica
+        itemMg.style.color = 'green'
 
         // Forma moderna - note que é necessário colocar o # antes do id
-        let itemEs=document.querySelector('#es')
-        itemEs.style.fontWeight='bold'
+        let itemEs = document.querySelector('#es')
+        itemEs.style.fontWeight = 'bold'
 
-        let listaOrd=document.querySelector('#estados')
+        let listaOrd = document.querySelector('#estados')
         // Muda o marcador da lista para letras maiúsculas
-        listaOrd.style.listStyleType='upper-alpha'
+        listaOrd.style.listStyleType = 'upper-alpha'
 
     </script>
-    
+</body>
+</html> 
+84  11-eventos.html 
+@@ -0,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eventos DOM</title>
+<style>
+    /* Regra para o elemento cujo id é quadrado */
+    #quadrado {
+        width: 100px;   /* largura */
+        height: 100px;  /* altura */
+        border: 3px solid blue; /* borda */
+        background-color: cornflowerblue;   /* cor de fundo */
+    }
+</style>
+</head>
+<body>
+<div id="quadrado"></div>
+<div id="msg"></div>
+<hr>
+<input id="nome">
+<button id="exibir">Exibir saudação</button>
+
+<script>
+
+    /*
+        Eventos são acontecimentos que podem ocorrer com os
+        elementos HTML.
+        Podemos instruir o JavaScript a "prestar atenção" nos
+        eventos (prestar atenção, ouvir -> "to listen") e,
+        quando eles acontecerem, executar uma ação prevista em
+        uma função.
+        Para fazer isso, adicionamos um "escutador" - "listener",
+        que presta atenção em um tipo específico de evento e dispara
+        a função que foi a ele indicada.
+    */
+
+    function clicou() {
+        alert('Você clicou no quadrado!')
+    }
+
+    let msg = document.querySelector('#msg')
+    let nome = document.querySelector('#nome')
+    let exibir = document.getElementById('exibir')
+
+    function mouseEntrou() {
+        msg.textContent = 'Mouse entrou no quadrado'
+    }
+
+    function mouseSaiu() {
+        msg.textContent = ''
+    }
+
+    function cliqueExibir() {
+        alert(`Olá, ${nome.value}!`)
+    }
+
+    function inputTecla() {
+        // nome.value -> conteúdo do input
+        // nome.value.toUpperCase() -> converte para maiúsculas
+        msg.textContent = nome.value.toUpperCase()
+    }
+
+    let quadrado = document.querySelector('#quadrado')
+
+    // Quando ocorrer um clique dentro do quadrado, será
+    // chamada a função clicou.
+    quadrado.addEventListener('click', clicou)
+
+    quadrado.addEventListener('mouseenter', mouseEntrou)
+
+    quadrado.addEventListener('mouseleave', mouseSaiu)
+
+    // Evento: o usuário liberou uma tecla pressionada
+    nome.addEventListener('keyup', inputTecla)
+
+    exibir.addEventListener('click', cliqueExibir)
+
+</script>
+</body>
+</html> 
+71  12-formulario-DOM.html 
+@@ -0,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário DOM</title>
+<style>
+    * { /* Todos os elementos */
+        font-family: Calibri, Arial, sans;
+    }
+    label {
+        /* Faz com que o label ocupe uma linha inteira e
+        empurre o input para baixo */
+        display: block;
+    }
+    div {
+        margin-bottom: 20px;
+    }
+    fieldset {
+        border: 1px solid slategray;
+        border-radius: 10px;    /* Borda arredondada */
+    }
+    fieldset label {
+        /* Labels dentro de fieldsets voltam a ser inline */
+        display: inline;
+    }
+</style>
+</head>
+<body>
+<h1>Gerador de saudação</h1>
+
+<div>
+    <label for="primeiro-nome">Primeiro nome</label>
+    <input id="primeiro-nome">
+</div>
+
+<div>
+    <label for="sobrenome">Sobrenome</label>
+    <input id="sobrenome">
+</div>
+
+<div>
+    <label for="forma-trat">Forma de tratamento</label>
+    <select id="forma-trat">
+        <option>(Selecione)</option>
+        <option>Vossa Majestade</option>
+        <option>Excelentíssimo/a</option>
+        <option>Ilustríssimo/a</option>
+        <option>Vossa Senhoria</option>
+        <option>Senhor/ora</option>
+        <option>Cremosíssimo/a</option>
+    </select>
+</div>
+
+<fieldset>
+    <!-- Isto é um comentário HTML -->
+    <legend>Sexo</legend>
+    <!-- Inputs do tipo radio precisam ter o mesmo name
+         para funcionar como um único conjunto no qual
+         apenas uma opção possa estar marcada ao mesmo tempo.
+    -->
+    <input id="masculino" type="radio" name="sexo" checked>
+    <label for="masculino">Masculino</label>
+    <br>
+    <input id="feminino" type="radio" name="sexo">
+    <label for="feminino">Feminino</label>
+</fieldset>
+
 </body>
 </html>
