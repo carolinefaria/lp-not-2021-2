@@ -41,6 +41,7 @@
         const oper=document.getElementById('oper')
         const calcular=getElementById('calcular')
         const resultado=getElementById('resultado')
+        const valorResultado=getElementById('valorResultado')
 
         function validar() {
 
@@ -64,14 +65,16 @@
                 oper.focus()
                 return false
             }
+            return true
+        }
+        function exibir(){
+         if(validar()){
 
-        function exibirResultado(){
-
-            let valorResultado 
+            let valorResultado = ''
 
             switch(oper.selectedIndex){
                 case 1:
-                    valorResultado= num1 ++ num2
+                    valorResultado= num1 + num2
                     break
                 
                     case 2:
@@ -86,8 +89,11 @@
                              valorResultado= num1/num2
             }
         }
-        }
+    }
+         
         calcular.addEventListener('click',valorResultado)
+        resultado.textContent=valorResultado
+        
     </script>
 </body>
 </html>
