@@ -18,7 +18,7 @@
         fieldset{
             display: inline;
         }
-        #result {
+        #resultado {
             border: 3px solid black;
             padding: 10px;
             background-color: yellow;
@@ -56,31 +56,30 @@
         <button id='calcular'>Calcular</button>
     </div>
 
-    <div id='result'></div>
+    <div id='resultado'></div>
 
     <script>
         const num1=document.getElementById('num1')
         const num2=document.getElementById('num2')
         const oper=document.getElementById('oper')
-        const calcular=getElementById('calcular')
-        const result=getElementById('resultado')
-        const valorResultado=getElementById('valor-resultado')
-        const saudacao=getElemntById('saudacao')
+        const calcular=document.getElementById('calcular')
+        const resultado=document.getElementById('resultado')
+        
         function validar() {
+            //Limpa qualquer valor que estiver sendo exibido
+            //na div resultado
+            resultado.textContent = ''
+
+             valNum1=parseFloat(num1.value)
+             valNum2=parseFloat(num2.value)
+
+             //Exibe as variáveis no console
+             console.log({valNum1,ValNum2})
 
             //num1
-            let valorNum1 = parseInt(num1.value)
-            if(num1.value === ''){
-                alert('O primeiro número deve ser preenchido!')
+            if(isNaN(valNum1)){
+                alert('Informe um número válido.')
                 num1.focus()
-                return false
-            }
-
-            //num2
-            let valorNum2=parseInt(num2.value)
-            if(num2.value === ''){
-                alert('O segundo número deve ser preenchido!')
-                num2.focus()
                 return false
             }
 
@@ -90,34 +89,39 @@
                 oper.focus()
                 return false
             }
+
+            //num2
+            if(isNaN(valNum2)){
+                alert('Informe um número válido.')
+                num2.focus()
+                return false
+            }
             return true
         }
         function exibir(){
          if(validar()){
 
-            let valorResultado = ''
-
             switch(oper.selectedIndex){
                 case 1:
-                    valorResultado= num1 + num2
+                    valorResultado= ValNum1 + ValNum2
                     break
                 
                     case 2:
-                        valorResultado = num1-num2
+                        valorResultado = ValNum1-ValNum2
                     break
 
                      case 3:
-                         valorResultado= num1*num2
+                         valorResultado= ValNum1*ValNum2
                          break
 
                          default:
-                             valorResultado= num1/num2
+                             valorResultado= ValNum1/ValNum2
             }
+            resultado.textContent=valorResultado 
         }
     }
          
-        calcular.addEventListener('click',valorResultado)
-        result.textContent=valorResultado
+        calcular.addEventListener('click',exibir)
         
     </script>
 </body>
