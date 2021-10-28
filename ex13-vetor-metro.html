@@ -46,6 +46,7 @@
         let estacoes=[]
         estacoes.push('Santa Teresinha')
         estacoes.push('Estação')
+        estacoes.push('Centro')
         estacoes.push('Jardim Lima')
         estacoes.push('Aeroporto I')
         
@@ -55,15 +56,35 @@
         document.write('<hr>')
 
         // 2)
-        estacoes.push('City Petrópolis')
+        estacoes.unshift('City Petrópolis')
         estacoes.push('Aeroporto IV')
 
         for ( let estacao of estacoes){
-            document.write(estacoes + '<br')
+            document.write(estacao + '<br>')
         }
         document.write('<hr>')
 
         // 3)
+        estacoes.splice(2,0,'Vila Imperador')
+        estacoes.splice(5,0,'Jardim Alvorada')
+        
+        for(let i=estacoes.length-1;i>=0;i--){
+            document.write(estacoes[i] + '<br>')
+        }
+        document.write('<hr>')
+
+        // 4)
+        estacoes.splice(2,1,'9 de Julho','Champagnat')
+        for(let i=0;i=estacoes.length-1;i++){
+            document.write(estacoes[i] + '<br>')
+        }
+        document.write('<hr>')
+
+        // 5)
+        let sul=estacoes.pop()
+        
+        
+
         
     </script>
 </head>
