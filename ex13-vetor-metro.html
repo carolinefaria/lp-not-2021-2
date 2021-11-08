@@ -75,14 +75,19 @@
 
         // 4)
         estacoes.splice(2,1,'9 de Julho','Champagnat')
-        for(let i=0;i=estacoes.length-1;i++){
+        for(let i=0;i<estacoes.length;i++){
             document.write(estacoes[i] + '<br>')
         }
         document.write('<hr>')
 
-        // 5)
-        let sul=estacoes.pop()
+       // 5)
+       let sul=estacoes.splice(7,2)
+        let staTer=estacoes.splice(1,1)
         
+        for(let estacao of estacoes){
+            document.write(estacao + '<br>')
+        }
+        document.write('<hr>')
         
 
         
