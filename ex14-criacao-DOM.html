@@ -10,7 +10,7 @@
 <body>
     <h1>Criação de novos elementos</h1>
     <!-- Título 2 vai aqui -->
-    <ol>
+    <ol id='lista1'>
 
     </ol>
     <script>
@@ -31,6 +31,61 @@
                para o segundo turno os dois candidatos mais votados.".
 
         */
+       // 1)
+       const lista=document.querySelector('#lista1')
+
+       const itemBel = document.createElement('li')
+       itemBel.id='bel'
+       itemBel.textContent='Belarmina'
+       lista.appendChild(itemBel)
+
+       const itemLuz = document.createElement('li')
+       itemLuz.id='luz'
+       itemLuz.textContent='Luzinete'
+       lista.appendChild(itemLuz)
+
+       const itemRob = document.createElement('li')
+       itemRob.id='rob'
+       itemRob.textContent='Roberval'
+       lista.appendChild(itemRob)
+       
+       // 2)
+       const itemAdam = document.createElement('li')
+       itemAdam.id='adam'
+       itemAdam.textContent='Adamastor'
+       lista.appendChild(itemAdam)
+       lista.insertBefore(itemAdam,itemBel)
+
+       const itemIdel = document.createElement('li')
+       itemIdel.id='idel'
+       itemIdel.textContent='Idelfonso'
+       lista.appendChild(itemIdel)
+       lista.insertBefore(itemIdel,itemLuz)
+
+       const itemQuer = document.createElement('li')
+       itemQuer.id='quer'
+       itemQuer.textContent='Querência'
+       lista.appendChild(itemQuer)
+       lista.insertBefore(itemQuer,itemRob)
+
+       const itemTur = document.createElement('li')
+       itemTur.id='tur'
+       itemTur.textContent='Turíbio'
+       lista.appendChild(itemTur)
+       
+       // 3)
+       const titulo2=document.createElement('h2')
+       titulo2.textContent='Lista de Candidatos'
+       document.body.insertBefore(titulo2,lista)
+      
+       // 4)
+       const parag=document.createElement('p')
+       parag.textContent='Irão para o segundo turno os dois candidatos mais votados.'
+       document.body.appendChild(parag)
+
+       
+       
+
 
     </script> 
     
