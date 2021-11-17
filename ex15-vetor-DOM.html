@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Estados do Sudeste e do Sul do Brasil</h1>
-    <ul>
+    <ul id='lista'>
 
     </ul>
     <script>
@@ -37,7 +37,12 @@
         document.write(estados+'<br>')
 
         // 3)
-        for(let estado of estados){
+        for (let estado of estados)
+        
+        const lista=document.querySelector('#lista')
+        const estados=document.createElement('li')
+        document.write(estado + '<br>')
+
             
         }
 
