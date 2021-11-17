@@ -10,6 +10,7 @@
     <ul id='lista'>
 
     </ul>
+    <hr>
     <script>
                 
         /*
@@ -35,19 +36,52 @@
         // 2)
         estados.unshift('São Paulo','Santa Catarina','Rio Grande do Sul','Rio de Janeiro','Paraná','Minas Gerais','Espírito Santo')
         document.write(estados+'<br>')
+        document.write('<hr>')
 
         // 3)
-        for (let estado of estados)
-        
-        const lista=document.querySelector('#lista')
-        const estados=document.createElement('li')
+        for (let estado of estados){
         document.write(estado + '<br>')
-
-            
         }
 
+        const lista=document.querySelector('#lista')
 
-                  
+       const itemSP = document.createElement('li')
+       itemSP.id='sp'
+       itemSP.textContent='São Paulo'
+       lista.appendChild(itemSP)
+
+       const itemSC= document.createElement('li')
+       itemSC.id='sc'
+       itemSC.textContent='Santa Catarina'
+       lista.appendChild(itemSC)
+
+       const itemRS = document.createElement('li')
+       itemRS.id='rs'
+       itemRS.textContent='Rio Grande do Sul'
+       lista.appendChild(itemRS)
+
+       const itemRJ = document.createElement('li')
+       itemRJ.id='rj'
+       itemRJ.textContent='Rio de Janeiro'
+       lista.appendChild(itemRJ)
+
+       const itemPR = document.createElement('li')
+       itemPR.id='pr'
+       itemPR.textContent='Paraná'
+       lista.appendChild(itemPR)
+
+       const itemMG= document.createElement('li')
+       itemMG.id='mg'
+       itemMG.textContent='Minas Gerais'
+       lista.appendChild(itemMG)
+
+       const itemES = document.createElement('li')
+       itemES.id='es'
+       itemES.textContent='Espírito Santo'
+       lista.appendChild(itemES)
+
+
+            
     </script>
 </body>
 </html>
